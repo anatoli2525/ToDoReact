@@ -17,7 +17,13 @@ const App = () => {
     setFilteredItems(updatedItems); 
   };
 
-  const handleEdit = (id) => {
+ 
+  const handleEdit = (id, newItem) => {
+    const updatedItems = todoItems.map((todo) =>
+      todo.id === id ? { ...todo, item: newItem } : todo
+    );
+    setToDoItems(updatedItems);
+    setFilteredItems(updatedItems);
   };
 
   const handleOnSearch = (searchText) => {
